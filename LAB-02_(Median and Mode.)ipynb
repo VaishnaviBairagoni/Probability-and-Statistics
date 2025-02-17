@@ -1,0 +1,205 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPP65wWAYBDMIeoIne2jFeN",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/VaishnaviBairagoni/Probability-and-Statistics/blob/main/LAB-02_(Median%20and%20Mode.)ipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "rDkaixjOSsMV",
+        "outputId": "6201b520-c9ea-4448-9d28-d20b4113f831"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Mean of given data is: 88.0\n"
+          ]
+        }
+      ],
+      "source": [
+        "import numpy as np\n",
+        "data=[85,92,78,89,95,87,90]\n",
+        "mean=sum(data)/len(data)\n",
+        "print(\"Mean of given data is:\",mean)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#mean with table\n",
+        "values=[15,16,17,18,19,20]\n",
+        "frequencies=[2,5,11,9,14,13]\n",
+        "sum_fx=sum(f*x for f,x in zip(frequencies,values))\n",
+        "sum_f=sum(frequencies)\n",
+        "mean1=sum_fx/sum_f\n",
+        "print(\"Mean of the frequency:\",mean1)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "mQpMXZNYVic7",
+        "outputId": "307f7123-de80-45a0-9dec-1bb456e70932"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Mean of the frequency: 18.24074074074074\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#mean with intervals\n",
+        "class_intervals=[(0,10),(10,20),(20,30),(30,40),(40,50),(50,60)]\n",
+        "frequencies=[12,18,27,20,17,6]\n",
+        "midpoints=[(start+end)/2 for start,end in class_intervals]\n",
+        "sum_fm=sum(f*m for f,m in zip(frequencies,midpoints))\n",
+        "sum_f=sum(frequencies)\n",
+        "mean2=sum_fm/sum_f\n",
+        "print(\"Mean of the class-intervals frequency distribution is:\",mean2)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "0Cgkjlc3VqUk",
+        "outputId": "9a8cbd35-48d4-4610-ff5b-28bd9db4a08e"
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Mean of the class-intervals frequency distribution is: 28.0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "data=[3,13,7,5,21,23,39,23,40,23,14,12,56,23,29]\n",
+        "data_sorted=sorted(data)\n",
+        "middle_index=len(data_sorted)//2\n",
+        "print(\"middle index of the given data:\",middle_index)\n",
+        "median=data_sorted[middle_index]\n",
+        "print(\"Median of the sample data:\",median)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "9wORDyGTVxqn",
+        "outputId": "22b4ce9f-b345-4f5f-e9e8-caca128e31c0"
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "middle index of the given data: 7\n",
+            "Median of the sample data: 23\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "data=[3,13,7,5,21,23,23,40,23,14,12,56,23,29]\n",
+        "data_sorted=sorted(data)\n",
+        "middle_index1=len(data_sorted)//2-1\n",
+        "middle_index2=len(data_sorted)//2\n",
+        "median2=(data_sorted[middle_index1]+data_sorted[middle_index2])/2\n",
+        "print(\"Median for data\",median2)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "frugeLb5V4We",
+        "outputId": "6e5199f2-2cc4-4cf3-8f66-14e52d413594"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Median for data 22.0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class_intervals=[(15,25),(25,35),(35,45),(45,55),(55,65),(65,75)]\n",
+        "frequencies=[4,11,19,14,0,2]\n",
+        "cummulative_frequencies=[sum(frequencies[:i+1]) for i in range(len(frequencies))]\n",
+        "N=sum(frequencies)\n",
+        "median_class_index=next(i for i,cf in enumerate (cummulative_frequencies)if cf>=N/2)\n",
+        "l=class_intervals[median_class_index][0]\n",
+        "cf=cummulative_frequencies[median_class_index-1]if median_class_index!=0 else 0\n",
+        "f=frequencies[median_class_index]\n",
+        "h=class_intervals[median_class_index][1]-class_intervals[median_class_index][0]\n",
+        "median3=l+((N/2-cf)/f)*h\n",
+        "print(\"Median:\",median3)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "f1Qiz_SHWBG5",
+        "outputId": "0866d3ae-f90f-40f3-f5f3-09fbec484a78"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Median: 40.26315789473684\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
